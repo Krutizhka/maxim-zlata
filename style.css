@@ -8,15 +8,13 @@
     padding: 0;
 }
 /* В самом верху вашего CSS-файла */
-body {
-    /* ... ваши другие стили ... */
+:root {
+    color-scheme: light only;
+}
 
-    /* ЭТА СТРОЧКА ОТКЛЮЧАЕТ ТЕМНУЮ ТЕМУ ТЕЛЕФОНА НА САЙТЕ */
-    color-scheme: light only; 
-    
-    /* Убедитесь, что фон задан явно, на всякий случай */
-    background-color: #f2f7f9; /* или ваш нежно-голубой/белый */
-    color: #2c4251; /* ваш цвет текста */
+html, body {
+    background-color: #f2f7f9 !important;
+    color: #2c4251 !important;
 }
 
 html, body {
