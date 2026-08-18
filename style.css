@@ -542,6 +542,37 @@ html, body {
     margin: 0 0 25px 0;
 }
 /* =========================================================
+   ФИКС ПУСТОГО ПРОБЕЛА НА ТЕЛЕФОНЕ (ОТМЕНА 100VH)
+   ========================================================= */
+@media screen and (max-width: 650px) {
+    /* Принудительно отменяем полноэкранную высоту для ID и для обоих классов */
+    #aboutPage,
+    .about-page,
+    .about-page.scroll-section {
+        min-height: 0 !important;
+        height: auto !important;
+        padding-top: 0 !important;       /* Убираем верхний отступ секции */
+        padding-bottom: 20px !important; /* Небольшой аккуратный отступ снизу */
+        margin-top: 0 !important;
+    }
+
+    .about-inner {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* Максимально поджимаем вертикальную линию */
+    .vertical-line {
+        height: 20px !important;
+        margin-top: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .about-title {
+        margin-bottom: 10px !important;
+    }
+}
+/* =========================================================
    СТРАНИЦА 4 — СВАДЬБА СОСТОИТСЯ (CALENDAR PAGE)
    ========================================================= */
 
