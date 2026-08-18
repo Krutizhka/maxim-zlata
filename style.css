@@ -420,31 +420,61 @@ html, body {
     }
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .memory-container {
-        flex-direction: column !important;
+/* =========================================================
+   АДАПТИВ ДЛЯ ВТОРОЙ СТРАНИЦЫ (ПОЛАРОИДЫ)
+   ========================================================= */
+
+@media screen and (max-width: 650px) {
+    /* Главный контейнер карточек */
+    .polaroid-container,
+    .photos-wrapper {
+        display: flex !important;
+        flex-direction: column !important; /* Ставим карточки друг под друга */
         align-items: center !important;
-        gap: 30px !important;
-    }
-
-    .polaroid {
+        gap: 25px !important;
         width: 100% !important;
-        max-width: 280px !important; /* Ограничивает ширину, чтобы рамка не уходила за края */
-        box-sizing: border-box;
+        padding: 0 15px !important;
     }
 
-    .polaroid-left {
-        transform: rotate(-2deg) !important;
+    /* Размеры самих карточек-полароидов на телефоне */
+    .polaroid-card,
+    .photo-frame {
+        width: 85% !important;
+        max-width: 280px !important;
+        height: auto !important;
+        margin: 0 auto !important;
     }
 
-    .polaroid-right {
-        transform: rotate(2deg) !important;
+    /* Рамка для картинки внутри полароида */
+    .polaroid-card img {
+        width: 100% !important;
+        height: 240px !important; /* Фиксированная комфортная высота */
+        object-fit: cover !important;
+        object-position: top center !important; /* Не срезает макушку */
+        border-radius: 4px !important;
     }
 
-    .center-date-stack {
-        font-size: 38px !important;
+    /* Поворот карточек сделать чуть мягче на мобильном */
+    .polaroid-card:first-child {
+        transform: rotate(-3deg) !important;
+    }
+    
+    .polaroid-card:last-child {
+        transform: rotate(3deg) !important;
+    }
+
+    /* Блок с датой (05 09 26) между/над карточками */
+    .date-center,
+    .wedding-date-block {
         margin: 10px 0 !important;
+        font-size: 1.2rem !important;
+    }
+
+    /* Имена внизу */
+    .names-header {
+        font-size: 1.5rem !important;
+        letter-spacing: 3px !important;
+        margin-top: 20px !important;
     }
 }
 
