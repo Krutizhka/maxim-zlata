@@ -65,7 +65,7 @@
             <!-- Поляроид слева -->
             <div class="polaroid polaroid-left">
                 <div class="polaroid-image">
-                    <img src="images/zlata-childhood.jpg" alt="Злата в детстве">
+                    <img src="images/zlata.jpg" alt="Злата в детстве">
                 </div>
                 <div class="polaroid-caption">
                     — интересно, кто будет моим мужем, когда я вырасту?
@@ -82,10 +82,10 @@
             <!-- Поляроид справа -->
             <div class="polaroid polaroid-right">
                 <div class="polaroid-image">
-                    <img src="images/maksim-childhood.jpg" alt="Максим в детстве">
+                    <img src="images/maxim.jpg" alt="Максим в детстве">
                 </div>
                 <div class="polaroid-caption">
-                    — кажется, я уже знаю... <span class="white-heart">♡</span>
+                    — им буду я... <span class="white-heart">♡</span>
                 </div>
             </div>
         </div>
@@ -222,7 +222,6 @@
             </div>
         </section>
 <!-- СТРАНИЦА 5 — МЕСТО ПРОВЕДЕНИЯ -->
-<!-- СТРАНИЦА 5 — МЕСТО ПРОВЕДЕНИЯ -->
 <section id="locationPage" class="location-page scroll-section">
     <div class="location-inner">
         
@@ -244,32 +243,29 @@
                     <div class="place-time">
                         <span class="blue-heart-inline">💙</span> Сбор гостей — 14:30
                     </div>
+
+                    <a href="https://yandex.by/maps/org/vesta/155018326946/?ll=27.156614%2C53.698539&z=11.63" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="route-button">
+                        КАК ДОБРАТЬСЯ
+                    </a>
                 </div>
             </div>
 
-            <!-- Правая колонка: Коллаж фото + Кнопка на стыке -->
+            <!-- Правая колонка: Коллаж из 2 фото -->
             <div class="location-media fade-item">
                 <div class="photo-collage">
                     <img src="images/vesta1.jpg" alt="Веста фото 1" class="collage-img">
                     <img src="images/vesta2.jpg" alt="Веста фото 2" class="collage-img">
-                    <img src="images/vesta3.jpg" alt="Веста фото 3" class="collage-img">
                 </div>
-
-                <!-- Светящаяся круглая кнопка-ссылка -->
-                <a href="https://yandex.by/maps/org/vesta/155018326946/?ll=27.156614%2C53.698539&z=11.63" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="route-button-circle">
-                    <span>КАК<br>ДОБРАТЬСЯ</span>
-                </a>
             </div>
 
         </div>
 
     </div>
 </section>
-    </div>
-    <!-- СТРАНИЦА 6 — ТАЙМИНГ -->
+ <!-- СТРАНИЦА 6 — ТАЙМИНГ -->
 <section id="timelinePage" class="timeline-page scroll-section">
     <div class="timeline-inner">
         
@@ -280,15 +276,17 @@
         </div>
 
         <div class="timeline-container fade-item">
+            <!-- КОНТЕЙНЕР ДЛЯ ФЕЙЕРВЕРКА -->
+            <div class="firework-container" id="firework"></div>
             
-            <div class="timeline-track">
-                <div class="timeline-progress" id="timelineProgress">
-                    <div class="sparkler-head" id="sparklerHead"></div>
-                </div>
-                <div class="timeline-center-rhombus">◇</div>
-            </div>
-
             <div class="timeline-items">
+                <!-- ВЕРТИКАЛЬНЫЙ ТРЕК ТЕПЕРЬ ВНУТРИ timeline-items -->
+                <div class="timeline-track">
+                    <div class="timeline-progress" id="timelineProgress">
+                        <div class="sparkler-head" id="sparklerHead"></div>
+                    </div>
+                    <div class="timeline-center-rhombus">◇</div>
+                </div>
 
                 <!-- 1. Венчание -->
                 <div class="timeline-item">
@@ -363,7 +361,6 @@
 
                 <!-- 5. Завершение вечера -->
                 <div class="timeline-item timeline-final">
-                    <div class="firework-container" id="firework"></div>
                     <div class="timeline-icon icon-balloons">
                         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <g class="balloon-item balloon-1">
@@ -378,7 +375,7 @@
                             </g>
                             <g class="balloon-item balloon-3">
                                 <path d="M 70 28 C 58 18 50 32 65 46 C 68 49 70 52 70 52 C 70 52 72 49 75 46 C 90 32 82 18 70 28 Z" fill="#ffffff" />
-                                <path d="M 64 26 C 61 28 60 33 62 36" opacity="0.5" stroke-width="1.5" />
+                                <path d="M 64 26 C 60 28 60 33 62 36" opacity="0.5" stroke-width="1.5" />
                                 <path d="M 70 52 C 72 65 64 72 65 82" />
                             </g>
                             <path d="M 22 82 L 78 82" stroke-width="2" />
@@ -394,33 +391,41 @@
 
     </div>
 </section>
-<!-- СТРАНИЦА 7: ДРЕСС-КОД -->
+<!-- =========================================================
+     СТРАНИЦА 7 — ДРЕСС-КОД
+     ========================================================= -->
 <section id="dresscodePage" class="dresscode-page scroll-section">
-    <div class="dresscode-inner">
+    <div class="dresscode-inner fade-item">
+        
+        <!-- Элегантный заголовок с боковыми линиями (как на картинке) -->
         <div class="dresscode-header">
             <span class="header-line"></span>
             <h2 class="dresscode-title">Дресс-код</h2>
             <span class="header-line"></span>
         </div>
+
+        <!-- Текст-приглашение про свободный дресс-код -->
         <div class="dresscode-content">
             <p class="dresscode-text">
                 Мы очень ждём и готовимся к нашему незабываемому дню! 
                 Поддержите нас Вашими улыбками и объятиями, а также нарядами, 
                 в которых вам будет максимально <strong>удобно и комфортно</strong>.
             </p>
+            
             <p class="dresscode-subtext">
-                Для нас главное — ваше присутствие и отличное настроение! Выбирайте любой стиль и цвет, в котором чувствуете себя прекрасно.
+                Для нас главное — ваше присутствие и отличное настроение! 
+                Выбирайте любой стиль и цвет, в котором чувствуете себя прекрасно.
             </p>
         </div>
+
     </div>
 </section>
-
-<<!-- СТРАНИЦА ТАЙМЕРА -->
+<!-- СТРАНИЦА ТАЙМЕРА -->
 <section id="countdownPage" class="countdown-page scroll-section">
     <div class="countdown-card">
         <h2 class="countdown-title">ДО НАШЕЙ СВАДЬБЫ ОСТАЛОСЬ</h2>
         
-        <div class="timer-container">
+        <div class="timeline-container fade-item">
             <!-- ДНИ -->
             <div class="timer-group">
                 <div class="digits-wrapper">
@@ -459,12 +464,7 @@
         </div>
     </div>
 </section>
-<!-- =========================================================
-     СЕКЦИЯ: ПОЖЕЛАНИЯ (СВЕТЛАЯ ПАСТЕЛЬНАЯ ГАММА)
-     ========================================================= -->
-     <!-- =========================================================
-     СЕКЦИЯ 1: ПОЖЕЛАНИЯ
-     ========================================================= -->
+<!-- СЕКЦИЯ: ПОЖЕЛАНИЯ -->
 <section id="wishesPage" class="wishes-page">
     <div class="wishes-wrapper">
         <div class="wishes-header">
@@ -474,17 +474,17 @@
         </div>
 
         <div class="slides-container">
+            <!-- Слайд 1 (Обновлен) -->
             <div class="wish-slide active">
                 <p>
-                    Будем очень признательны, если Вы воздержитесь от криков «Горько». 
-                    Ведь поцелуй — это знак выражения чувств, и он не может быть по заказу.
+                    Мы очень ждём и готовимся к нашему незабываемому дню! Поддержите нас вашими искренними улыбками, тёплыми объятиями и прекрасным настроением.
                 </p>
                 <p>
-                    Мы очень ждём и готовимся к нашему незабываемому дню! 
-                    Поддержите нас Вашими улыбками и объятиями, а также красивыми нарядами! 
-                    Только откажитесь от ярко-красного, а белый цвет оставьте невесте, спасибо!
+                    Главное для нас — чтобы вы чувствовали себя легко и уютно! А белые наряды, по традиции, оставьте, пожалуйста, для невесты ✨
                 </p>
             </div>
+            
+            <!-- Слайд 2 -->
             <div class="wish-slide">
                 <p>
                     Главное для нас в этот день — ваше присутствие, искренние улыбки и хорошее настроение!
@@ -494,6 +494,8 @@
                     которые останутся с нами на долгие годы.
                 </p>
             </div>
+
+            <!-- Слайд 3 -->
             <div class="wish-slide">
                 <p>
                     Не забудьте удобную обувь, ведь нас ждут зажигательные танцы и насыщенная вечерняя программа!
