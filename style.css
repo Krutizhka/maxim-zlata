@@ -1259,17 +1259,34 @@ html, body {
 @keyframes balloonFloatCenter { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
 @keyframes balloonFloatRight { 0% { transform: rotate(4deg); } 100% { transform: rotate(-4deg); } }
 
-/* Адаптация для мобильных устройств */
-@media (max-width: 520px) {
-    .timeline-track { 
-        left: 30px;          /* Центр для 60px иконки */
-        top: 40px; 
-        bottom: 40px; 
+/* Выравнивание тайминга ровно по центру на мобильных */
+@media screen and (max-width: 650px) {
+    /* Контейнер всей секции тайминга */
+    .timeline,
+    .schedule-container,
+    .timing-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
-    .firework-container { left: 30px; bottom: 40px; }
-    .timeline-icon { width: 60px; height: 60px; min-width: 60px; }
-    .timeline-time { font-size: 18px; margin-left: 16px; }
-    .timeline-text { font-size: 13px; }
+
+    /* Каждый элемент Тайминга (иконка + время + текст) */
+    .timeline-item,
+    .schedule-item {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        /* Смещаем весь блок немного влево, чтобы визуальный центр иконки и текста встал ровно по середине экрана */
+        transform: translateX(-35px) !important; 
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 /* =========================================================
