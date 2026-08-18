@@ -1284,49 +1284,72 @@ html, body {
 @keyframes balloonFloatRight { 0% { transform: rotate(4deg); } 100% { transform: rotate(-4deg); } }
 
 /* =========================================================
-   ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ТАЙМИНГА И ЛИНИИ НА МОБИЛЬНЫХ
+   ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ТАЙМИНГА И ЛИНИИ НА МОБИЛЬНЫХ (GRID-ФИКС)
    ========================================================= */
 @media screen and (max-width: 650px) {
     .timeline-page {
         padding: 40px 15px !important;
     }
 
+    /* Обертка центрирует весь блок тайминга ровно посередине экрана */
     .timeline-container {
-        max-width: 310px !important; /* Уменьшаем блок, чтобы центр иконки встал ровно по центру экрана */
+        width: 100% !important;
+        max-width: 320px !important;
         margin: 0 auto !important;
+        padding: 0 !important;
     }
 
-    /* Линия строго посередине 60px иконки (30px от левого края) */
+    /* Линия жестко привязана к центру первой колонки (30px = центр 60px иконки) */
     .timeline-track {
         top: 30px !important;
         bottom: 30px !important;
         left: 30px !important;
+        margin: 0 !important;
     }
 
     .firework-container {
         left: 30px !important;
     }
 
-    /* Уменьшаем иконки для аккуратного вида */
+    .timeline-items {
+        gap: 30px !important;
+    }
+
+    /* Сеточные колонки: Колонка 1 — иконка (60px), Колонка 2 — весь текст */
+    .timeline-item {
+        display: grid !important;
+        grid-template-columns: 60px 1fr !important;
+        align-items: center !important;
+        width: 100% !important;
+        transform: none !important;
+        margin: 0 !important;
+    }
+
     .timeline-icon {
         width: 60px !important;
         height: 60px !important;
         min-width: 60px !important;
+        grid-column: 1 !important;
+        justify-self: center !important;
     }
 
-    .timeline-item {
-        transform: none !important; /* Убираем сдвиг, ломавший геометрию */
-        justify-content: flex-start !important;
+    /* Время и описание уходят строго во вторую колонку */
+    .timeline-time, 
+    .timeline-text {
+        grid-column: 2 !important;
+        margin-left: 15px !important;
+        margin-right: 0 !important;
+        text-align: left !important;
     }
 
     .timeline-time {
         font-size: 18px !important;
-        margin-left: 14px !important;
-        margin-right: 8px !important;
+        display: block !important;
     }
 
     .timeline-text {
         font-size: 13px !important;
+        display: block !important;
     }
 }
 /* =========================================================
