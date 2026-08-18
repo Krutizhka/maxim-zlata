@@ -855,84 +855,83 @@ html, body {
 .location-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 40px;
     width: 100%;
     align-items: center;
 }
 
-/* Левая колонка (Карточка) */
+/* Левая колонка — 2 карточки */
 .location-info {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     justify-content: center;
 }
 
-/* Карточка места */
+/* Карточки мест */
 .location-place-card {
     background: #f8fafc;
     border: 1px solid rgba(59, 130, 246, 0.25);
     border-radius: 18px;
-    padding: 35px 30px;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.08),
-                0 0 20px rgba(59, 130, 246, 0.12);
+    padding: 24px 26px;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.08);
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
 }
 
 .location-place-card:hover {
-    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.18),
-                0 0 30px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.18);
     border-color: rgba(59, 130, 246, 0.5);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .place-name {
     font-family: 'Montserrat', sans-serif;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 600;
     color: #0f172a;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .place-address {
-    font-size: 14px;
+    font-size: 13px;
     color: #64748b;
-    line-height: 1.5;
-    margin-bottom: 22px;
+    line-height: 1.4;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .pin-icon {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .place-time {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+    font-size: 19px;
     font-style: italic;
     color: #1e293b;
     border-top: 1px dashed rgba(59, 130, 246, 0.3);
-    padding-top: 18px;
-    margin-bottom: 24px;
+    padding-top: 12px;
+    margin-bottom: 16px;
 }
 
 /* Элегантная кнопка маршрута */
 .route-button {
     display: inline-block;
     align-self: flex-start;
-    padding: 12px 28px;
+    padding: 10px 22px;
     background-color: #ffffff;
     color: #233745;
     border: 1.5px solid rgba(59, 130, 246, 0.4);
     border-radius: 30px;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
     transition: all 0.3s ease;
@@ -946,42 +945,45 @@ html, body {
     transform: translateY(-2px);
 }
 
-/* Правая колонка (Фото) */
+/* Правая колонка — 3 фото */
 .location-media {
     display: flex;
     justify-content: center;
 }
 
+/* Правая колонка — 3 аккуратных снимка */
 .photo-collage {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
-    max-width: 420px;
+    align-items: center; /* Центрируем фото */
 }
 
-.collage-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+/* Общие стили для всех фото */
+.photo-collage .collage-img {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: 140px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 12px;
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Направляем кадрирование первого фото вверх, чтобы вывеска Westa была виднее */
-/* Показывает 100% изображения с лёгким фоном по бокам */
-.photo-collage .collage-img:first-child {
-    object-fit: fill;
-    background-color: #f8fafc; /* Светлый фон в цвет карточки */
+/* 2-е фото: увеличенное по высоте и с фокусом на верх здания */
+.photo-collage .collage-img:nth-child(2) {
+    height: 220px !important;
+    object-position: 50% 15% !important;
 }
 
-.collage-img:hover {
+.photo-collage .collage-img:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
 }
-
 /* Мобильная адаптация */
 @media (max-width: 850px) {
     .location-header {
@@ -1014,9 +1016,9 @@ html, body {
     }
 
     .collage-img {
-        height: 160px;
+        height: 150px;
     }
-}   
+}
 /* =========================================================
    СТРАНИЦА 6 — ТАЙМИНГ (ФИКС ВЫРАВНИВАНИЯ ЛИНИИ)
    ========================================================= */
