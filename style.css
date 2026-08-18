@@ -1059,7 +1059,7 @@ html, body {
     }
 }
 /* =========================================================
-   СТРАНИЦА 6 — ТАЙМИНГ (ФИКС ВЫРАВНИВАНИЯ ЛИНИИ)
+   СТРАНИЦА 6 — ТАЙМИНГ
    ========================================================= */
 .timeline-page {
     padding: 80px 20px;
@@ -1103,31 +1103,24 @@ html, body {
 /* Контейнер тайминга */
 .timeline-container {
     position: relative;
-    width: 100%;            /* Фикс: контейнер занимает всю ширину для точного расчета координат */
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
     padding: 10px 0;
 }
 
-/* Серый трек строго по центру 80px иконки (40px) */
+/* Серый трек (линия) строго по центру 80px иконки (40px от левого края) */
 .timeline-track {
     position: absolute;
-    top: 40px;              /* Центрирование по высоте первой 80px иконки (10px padding + 40px) */
-    bottom: 40px;           /* Конец на уровне центра последней иконки */
-    left: 40px;             /* Центрирование по горизонтали (80px / 2) */
+    top: 40px;
+    bottom: 40px;
+    left: 40px;
     width: 2px;
     background: #cbd5e1;
     z-index: 1;
     transform: translateX(-50%);
 }
-/* Для мобилок (при уменьшении иконки до 60px) */
-@media (max-width: 520px) {
-    .timeline-track {
-        top: 30px !important;
-        bottom: 30px !important;
-        left: 30px !important; /* Центр 60px иконки */
-    }
-}
+
 .timeline-center-rhombus {
     position: absolute;
     top: 50%;
@@ -1141,7 +1134,7 @@ html, body {
     line-height: 1;
 }
 
-/* Светящаяся синяя линия прогресса */
+/* Светящаяся линия прогресса */
 .timeline-progress {
     position: absolute;
     top: 0;
@@ -1154,7 +1147,7 @@ html, body {
     z-index: 2;
 }
 
-/* Бенгальский огонек на конце линии */
+/* Огонек на конце линии */
 .sparkler-head {
     position: absolute;
     left: 50%;
@@ -1236,7 +1229,7 @@ html, body {
     filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.6));
 }
 
-/* --- ПОЗИЦИОНИРОВАНИЕ ФЕЙЕРВЕРКА --- */
+/* Фейерверк */
 .firework-container {
     position: absolute;
     bottom: 50px;
@@ -1264,20 +1257,12 @@ html, body {
 }
 
 @keyframes saluteExplode {
-    0% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
-        opacity: 1;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        transform: translate(var(--dx), var(--dy)) scale(0.2) rotate(360deg);
-        opacity: 0;
-    }
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
+    50% { opacity: 1; }
+    100% { transform: translate(var(--dx), var(--dy)) scale(0.2) rotate(360deg); opacity: 0; }
 }
 
-/* Ховеры */
+/* Анимации ховеров */
 .icon-church:hover svg { transform: translateY(-4px); transition: transform 0.3s ease; }
 .icon-pin:hover .pin-head { animation: pinBounce 0.8s ease infinite alternate; }
 @keyframes pinBounce { 0% { transform: translateY(0); } 100% { transform: translateY(-6px); } }
@@ -1298,36 +1283,52 @@ html, body {
 @keyframes balloonFloatCenter { 0% { transform: translateY(0); } 100% { transform: translateY(-4px); } }
 @keyframes balloonFloatRight { 0% { transform: rotate(4deg); } 100% { transform: rotate(-4deg); } }
 
-/* Выравнивание тайминга ровно по центру на мобильных */
+/* =========================================================
+   ИДЕАЛЬНОЕ ЦЕНТРИРОВАНИЕ ТАЙМИНГА И ЛИНИИ НА МОБИЛЬНЫХ
+   ========================================================= */
 @media screen and (max-width: 650px) {
-    /* Контейнер всей секции тайминга */
-    .timeline,
-    .schedule-container,
-    .timing-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    .timeline-page {
+        padding: 40px 15px !important;
     }
 
-    /* Каждый элемент Тайминга (иконка + время + текст) */
-    .timeline-item,
-    .schedule-item {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-        /* Смещаем весь блок немного влево, чтобы визуальный центр иконки и текста встал ровно по середине экрана */
-        transform: translateX(-35px) !important; 
-        margin-left: auto !important;
-        margin-right: auto !important;
+    .timeline-container {
+        max-width: 310px !important; /* Уменьшаем блок, чтобы центр иконки встал ровно по центру экрана */
+        margin: 0 auto !important;
+    }
+
+    /* Линия строго посередине 60px иконки (30px от левого края) */
+    .timeline-track {
+        top: 30px !important;
+        bottom: 30px !important;
+        left: 30px !important;
+    }
+
+    .firework-container {
+        left: 30px !important;
+    }
+
+    /* Уменьшаем иконки для аккуратного вида */
+    .timeline-icon {
+        width: 60px !important;
+        height: 60px !important;
+        min-width: 60px !important;
+    }
+
+    .timeline-item {
+        transform: none !important; /* Убираем сдвиг, ломавший геометрию */
+        justify-content: flex-start !important;
+    }
+
+    .timeline-time {
+        font-size: 18px !important;
+        margin-left: 14px !important;
+        margin-right: 8px !important;
+    }
+
+    .timeline-text {
+        font-size: 13px !important;
     }
 }
-
 /* =========================================================
    1. СТРАНИЦА ДРЕСС-КОД (СИНИЙ ЧИТАЕМЫЙ ТЕКСТ С ЭФФЕКТАМИ)
    ========================================================= */
