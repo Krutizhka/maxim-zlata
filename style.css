@@ -293,6 +293,9 @@ html, body {
     60% { transform: translateY(-3px); }
 }
 
+/* Подключение всех необходимых шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400&display=swap');
+
 /* =========================================================
    СТРАНИЦА 2 — ИСТОРИЯ / ПОЛЯРОИДЫ (STORY PAGE)
    ========================================================= */
@@ -328,6 +331,7 @@ html, body {
     font-weight: 400;
 }
 
+/* Блок с поляроидами и датой */
 .memory-container {
     display: flex;
     align-items: center;
@@ -354,47 +358,59 @@ html, body {
 .polaroid-left:hover { transform: rotate(-2deg) scale(1.02); }
 .polaroid-right:hover { transform: rotate(2deg) scale(1.02); }
 
-/* Картинка внутри поляроида */
-.polaroid-image img {
+/* Контейнер и настройки кадрирования изображений */
+.polaroid-image {
     width: 100%;
     height: 250px;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+.polaroid-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: top center; /* Сохраняет макушку и лицо на фото */
+    object-position: center top; /* Фиксирует макушку и лицо в кадре */
     display: block;
 }
 
+/* Рукописный шрифт Caveat для подписей */
 .polaroid-caption {
     color: #333333;
-    font-size: 18px;
+    font-size: 20px;
     margin-top: 16px;
-    font-family: 'Caveat', cursive;
+    font-family: 'Caveat', cursive !important;
     line-height: 1.2;
     padding: 0 5px;
     text-align: center;
 }
 
-.white-heart { font-size: 15px; }
+.white-heart { 
+    font-size: 16px; 
+}
 
+/* Дата столбиком по центру */
 .center-date-stack {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 48px;
     color: #9bb5c4;
-    line-height: 0.95;
+    line-height: 1;
     font-weight: 300;
     user-select: none;
     letter-spacing: 1px;
 }
 
+/* Имена внизу */
 .big-names {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: clamp(32px, 6vw, 54px);
     font-weight: 500;
     letter-spacing: 8px;
@@ -404,28 +420,28 @@ html, body {
     text-transform: uppercase;
 }
 
-/* Софт-нежное пульсирующее сердце */
+/* Пастельно-голубая пульсация сердца */
 .glowing-heart {
     font-size: clamp(22px, 4vw, 36px);
     display: inline-block;
-    color: #7ba4b5;
+    color: #5c8ca8;
     animation: heartGlow 2.5s infinite alternate ease-in-out;
     line-height: 1;
 }
 
 @keyframes heartGlow {
     from {
-        filter: drop-shadow(0 0 2px rgba(123, 164, 181, 0.4));
+        filter: drop-shadow(0 0 3px rgba(92, 140, 168, 0.4));
         transform: scale(1);
     }
     to {
-        filter: drop-shadow(0 0 8px rgba(123, 164, 181, 0.7));
+        filter: drop-shadow(0 0 10px rgba(92, 140, 168, 0.7));
         transform: scale(1.1);
     }
 }
 
 /* =========================================================
-   АДАПТИВ ДЛЯ ВТОРОЙ СТРАНИЦЫ (МОБИЛЬНЫЕ УСТРОЙСТВА)
+   АДАПТИВ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (ЭКРАНЫ ДО 650px)
    ========================================================= */
 
 @media screen and (max-width: 650px) {
@@ -434,37 +450,34 @@ html, body {
     }
 
     .wedding-day-title {
-        margin-bottom: 30px !important;
+        margin-bottom: 25px !important;
         letter-spacing: 4px !important;
     }
 
-    /* Располагаем элементы вертикально столбиком:
-       1-й полароид -> Дата -> 2-й полароид */
+    /* На телефоне элементы выстраиваются красивой вертикальной цепочкой */
     .memory-container {
         flex-direction: column !important;
         align-items: center !important;
-        gap: 30px !important;
-        margin-bottom: 40px !important;
+        gap: 25px !important;
+        margin-bottom: 35px !important;
     }
 
-    /* Адаптируем размер карточки под экран мобильного */
     .polaroid {
         width: 100% !important;
-        max-width: 280px !important;
+        max-width: 270px !important;
     }
 
-    .polaroid-image img {
+    .polaroid-image {
         height: 230px !important;
     }
 
-    /* Ослабляем наклон на смартфонах */
-    .polaroid-left { transform: rotate(-3deg) !important; }
-    .polaroid-right { transform: rotate(3deg) !important; }
+    .polaroid-left { transform: rotate(-2deg) !important; }
+    .polaroid-right { transform: rotate(2deg) !important; }
 
-    /* Горизонтальный вид даты на телефоне */
+    /* Дата на смартфонах аккуратно сжимается в одну горизонтальную линию */
     .center-date-stack {
         flex-direction: row !important;
-        gap: 12px !important;
+        gap: 10px !important;
         font-size: 28px !important;
         margin: 5px 0 !important;
     }
@@ -472,9 +485,9 @@ html, body {
     .big-names {
         gap: 12px !important;
         letter-spacing: 4px !important;
+        font-size: 28px !important;
     }
 }
-
 /* =========================================================
    СТРАНИЦА 3 — УЗНАЛИ ЭТИХ МАЛЫШЕЙ? (ABOUT PAGE)
    ========================================================= */
