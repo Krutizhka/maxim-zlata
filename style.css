@@ -1370,10 +1370,6 @@ html, body {
    2. СТРАНИЦА ТАЙМЕРА (БЕЛАЯ КАРТОЧКА С ЦЕНТРИРОВАНИЕМ)
    ========================================================= */
 
-/* =========================================================
-   2. СТРАНИЦА ТАЙМЕРА (БЕЛАЯ КАРТОЧКА С ЦЕНТРИРОВАНИЕМ)
-   ========================================================= */
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap');
 
 .countdown-page {
@@ -1509,25 +1505,65 @@ html, body {
 
 /* Адаптация под мобильные экраны */
 @media (max-width: 650px) {
-    .countdown-card {
-        padding: 35px 12px !important;
-        border-radius: 40px 0px 40px 0px !important;
+    .countdown-page {
+        padding: 40px 10px !important;
     }
+
+    .countdown-card {
+        padding: 30px 10px !important;
+        border-radius: 35px 0px 35px 0px !important;
+    }
+
     .countdown-title {
-        font-size: 1.25rem !important;
-        letter-spacing: 3px !important;
+        font-size: 1.2rem !important;
+        letter-spacing: 2px !important;
         margin-bottom: 20px !important;
     }
+
+    /* Компактный контейнер без вылезания за границы */
     .timeline-container {
-        gap: 10px !important;
+        gap: 6px !important; /* Уменьшаем расстояние между группами */
+        justify-content: space-between !important;
     }
+
+    .timer-group {
+        flex: 1 1 0px !important;
+        min-width: 0 !important; /* Защита flex-контейнера от переполнения */
+    }
+
+    .digits-wrapper {
+        width: 100% !important;
+        justify-content: center !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Адаптивные окошки для цифр */
     .digit-box {
-        width: 38px !important;
+        width: clamp(22px, 5.8vw, 36px) !important; /* Плавающий размер ширины */
         height: 36px !important;
-        font-size: 1.3rem !important;
+        font-size: clamp(1.0rem, 4.5vw, 1.3rem) !important; /* Резиновый шрифт */
     }
+
     .timer-label {
-        font-size: 0.7rem !important;
+        font-size: 0.65rem !important;
+        letter-spacing: 0 !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* Дополнительная страховка для самых узких экранов (до 380px) */
+@media (max-width: 380px) {
+    .timeline-container {
+        gap: 3px !important;
+    }
+
+    .digit-box {
+        width: clamp(18px, 5.2vw, 24px) !important;
+        height: 32px !important;
+    }
+
+    .timer-label {
+        font-size: 0.58rem !important;
     }
 }
 /* =========================================================
